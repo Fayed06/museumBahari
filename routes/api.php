@@ -44,18 +44,35 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
 });
 
+Route::group(['namespace' => 'Api'], function () {
+    // Submission Link
+    Route::post('/link/submit', "SubmissionController@submit");
+
+    // Barang
+    Route::get('/barang', "BarangController@getAll");
+    Route::get('/barang/{id}', "BarangController@getOneById");
+
+    // Event
+    Route::get('/event', "EventController@getAll");
+    Route::get('/event/{id}', "EventController@getOneById");
+
+    // Ticket
+    Route::post('/tickets/order', "TicketController@store");
+    Route::get('/tickets', "TicketController@getAll");
+});
+
  // Submission Link
-Route::post('/link/submit', [SubmissionController::class, 'submit']);
+// Route::post('/link/submit', [SubmissionController::class, 'submit']);
 
 // Barang
-Route::get('/barang', [BarangController::class, 'getAll']);
-Route::get('/barang/{id}', [BarangController::class, 'getOneById']);
+// Route::get('/barang', [BarangController::class, 'getAll']);
+// Route::get('/barang/{id}', [BarangController::class, 'getOneById']);
 
 // Event
-Route::get('/event', [EventController::class, 'getAll']);
-Route::get('/event/{id}', [EventController::class, 'getOneById']);
+// Route::get('/event', [EventController::class, 'getAll']);
+// Route::get('/event/{id}', [EventController::class, 'getOneById']);
 
-Route::post('/tickets/order', [TicketController::class, 'store']);
-Route::get('/tickets', [TicketController::class, 'getAll']);
+// Route::post('/tickets/order', [TicketController::class, 'store']);
+// Route::get('/tickets', [TicketController::class, 'getAll']);
 
 
