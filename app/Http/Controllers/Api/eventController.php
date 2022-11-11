@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Http\Resources\eventResource;
 
-class eventController extends Controller
+class EventController extends Controller
 {
     public function getAll()
     {

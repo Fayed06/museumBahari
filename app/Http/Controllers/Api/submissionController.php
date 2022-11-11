@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\SubmissionLink;
 
-class submissionController extends Controller
+class SubmissionController extends Controller
 {
     public function submit(Request $request)
     {

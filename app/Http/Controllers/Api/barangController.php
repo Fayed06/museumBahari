@@ -8,7 +8,7 @@ use App\Models\Barang;
 use App\Http\Resources\barangResource;
 
 
-class barangController extends Controller
+class BarangController extends Controller
 {
     public function getAll()
     {

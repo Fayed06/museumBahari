@@ -13,7 +13,7 @@ use App\Http\Resources\Admin\OrderTicketResource;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class ticketController extends Controller
+class TicketController extends Controller
 {
     use MediaUploadingTrait;
 
