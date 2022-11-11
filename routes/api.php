@@ -44,7 +44,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
 });
 
-Route::group(['namespace' => 'Api/V1'], function () {
+Route::group(['namespace' => 'Api\V1'], function () {
     // Submission Link
     Route::post('/link/submit', "SubmissionController@submit");
 
