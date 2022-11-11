@@ -1,6 +1,9 @@
 <?php
 
-use App\Http\Controllers\SubmissionController;
+use App\Http\Controllers\Api\SubmissionController;
+use App\Http\Controllers\Api\BarangController;
+use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\TicketController;
 
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:sanctum']], function () {
     // Permissions
@@ -42,17 +45,17 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 });
 
  // Submission Link
-Route::post('/link/submit', [App\Http\Controllers\Api\SubmissionController::class, 'submit']);
+Route::post('/link/submit', [SubmissionController::class, 'submit']);
 
 // Barang
-Route::get('/barang', [App\Http\Controllers\Api\BarangController::class, 'getAll']);
-Route::get('/barang/{id}', [App\Http\Controllers\Api\BarangController::class, 'getOneById']);
+Route::get('/barang', [BarangController::class, 'getAll']);
+Route::get('/barang/{id}', [BarangController::class, 'getOneById']);
 
 // Event
-Route::get('/event', [App\Http\Controllers\Api\EventController::class, 'getAll']);
-Route::get('/event/{id}', [App\Http\Controllers\Api\EventController::class, 'getOneById']);
+Route::get('/event', [EventController::class, 'getAll']);
+Route::get('/event/{id}', [EventController::class, 'getOneById']);
 
-Route::post('/tickets/order', [App\Http\Controllers\Api\TicketController::class, 'store']);
-Route::get('/tickets', [App\Http\Controllers\Api\TicketController::class, 'getAll']);
+Route::post('/tickets/order', [TicketController::class, 'store']);
+Route::get('/tickets', [TicketController::class, 'getAll']);
 
 
