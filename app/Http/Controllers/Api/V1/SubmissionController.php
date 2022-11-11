@@ -25,6 +25,10 @@ class SubmissionController extends Controller
 
 
         return response()
-            ->json(['data' => $link, ]);
+            ->json([
+                'status' => 'success',
+                'message' => 'berhasil mengsubmit link',
+                'data' => $link,
+            ]);
     }
 }

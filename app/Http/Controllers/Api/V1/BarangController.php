@@ -13,7 +13,11 @@ class BarangController extends Controller
     public function getAll()
     {
         $data = Barang::latest()->get();
-        return response()->json([barangResource::collection($data), 'Barang fetched.']);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'berhasil mengambil data semua barang',
+            'data' => barangResource::collection($data)
+        ]);
     }
 
     public function getOnebyId($id)
@@ -22,6 +26,10 @@ class BarangController extends Controller
         if (is_null($data)) {
             return response()->json('Data not found', 404);
         }
-        return response()->json([new barangResource($data)]);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'berhasil mengambil data semua barang',
+            'data' => new barangResource($data)
+        ]);
     }
 }

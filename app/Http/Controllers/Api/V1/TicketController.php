@@ -23,26 +23,12 @@ class TicketController extends Controller
         return response()->json([ticketResource::collection($data), 'ticket fetched.']);
     }
 
-    public function order(Request $request)
-    {
-        $validator = Validator::make($request->all());
-
-        if($validator->fails()){
-            return response()->json($validator->errors());
-        }
-
-        $data = OrderTicket::create();
-
-        return response()
-            ->json(['data' => $data, ]);
-    }
-
     public function store(Request $request)
     {
         $orderTicket = OrderTicket::create($request->all());
 
         if ($request->input('bukti_pembayaran', false)) {
-            echo $orderTicket->addMedia(storage_path('storage/app/public' . basename($request->input('bukti_pembayaran'))))->toMediaCollection('bukti_pembayaran');
+            $orderTicket->addMedia(storage_path('storage/app/public' . basename($request->input('bukti_pembayaran'))))->toMediaCollection('bukti_pembayaran');
         }
         return (new OrderTicketResource($orderTicket))
             ->response()
