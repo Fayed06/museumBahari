@@ -62,18 +62,4 @@ Route::group(['namespace' => 'Api\V1'], function () {
     Route::get('/tickets', "TicketController@getAll");
 });
 
- // Submission Link
-// Route::post('/link/submit', [SubmissionController::class, 'submit']);
-
-// Barang
-// Route::get('/barang', [BarangController::class, 'getAll']);
-// Route::get('/barang/{id}', [BarangController::class, 'getOneById']);
-
-// Event
-// Route::get('/event', [EventController::class, 'getAll']);
-// Route::get('/event/{id}', [EventController::class, 'getOneById']);
-
-// Route::post('/tickets/order', [TicketController::class, 'store']);
-// Route::get('/tickets', [TicketController::class, 'getAll']);
-
 
