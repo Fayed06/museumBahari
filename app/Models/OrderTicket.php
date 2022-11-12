@@ -42,7 +42,7 @@ class OrderTicket extends Model implements HasMedia
         'jumlah_tiket',
         'tanggal_pemesanan',
         'valid',
-        'status_tiket'=> 'aktif',
+        'status_tiket',
         'created_at',
         'updated_at',
         'deleted_at',
