@@ -26,12 +26,6 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         $orderTicket = OrderTicket::create($request->all());
-
-        // if ($request->input('bukti_pembayaran', false)) {
-        //     // $orderTicket->addMedia(storage_path('tmp/uploads/' . basename($request->input('bukti_pembayaran'))))->toMediaCollection('bukti_pembayaran');
-        //     $orderTicket->addMediaFromRequest('bukti_pembayaran')->toMediaCollection('bukti_pembayaran');
-
-        // }
         if ($orderTicket) {
             if ($request->hasFile('bukti_pembayaran')) {
                 $orderTicket->addMediaFromRequest('bukti_pembayaran')->toMediaCollection('bukti_pembayaran');

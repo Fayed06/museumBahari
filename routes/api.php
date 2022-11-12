@@ -61,5 +61,3 @@ Route::group(['namespace' => 'Api\V1'], function () {
     Route::post('/tickets/order', "TicketController@store");
     Route::get('/tickets', "TicketController@getAll");
 });
-
-
