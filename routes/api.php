@@ -51,6 +51,7 @@ Route::group(['namespace' => 'Api\V1'], function () {
     // Barang
     Route::get('/barang', "BarangController@getAll");
     Route::get('/barang/{id}', "BarangController@getOneById");
+    Route::get('/barang/kode/{kode_barang}', "BarangController@getOneByKode");
 
     // Event
     Route::get('/event', "EventController@getAll");
