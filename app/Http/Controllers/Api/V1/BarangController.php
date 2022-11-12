@@ -35,14 +35,14 @@ class BarangController extends Controller
 
     public function getOneByKode($kode_barang)
     {
-        $data = Barang::find($kode_barang);
+        $data = Barang::where("kode_barang", $kode_barang)->get();
         if (is_null($data)) {
             return response()->json('Data not found', 404);
         }
         return response()->json([
             'status' => 'success',
             'message' => 'berhasil mengambil data salah satu barang',
-            'data' =>  new eventResource($data)
+            'data' =>  new barangResource($data)
         ]);
     }
 }

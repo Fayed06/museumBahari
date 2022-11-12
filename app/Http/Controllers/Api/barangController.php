@@ -24,4 +24,16 @@ class BarangController extends Controller
         }
         return response()->json([new barangResource($data)]);
     }
+    public function getOneByKode($kode_barang)
+    {
+        $data = Barang::find($kode_barang);
+        if (is_null($data)) {
+            return response()->json('Data not found', 404);
+        }
+        return response()->json([
+            'status' => 'success',
+            'message' => 'berhasil mengambil data salah satu barang',
+            'data' =>  new barangResource($data)
+        ]);
+    }
 }
