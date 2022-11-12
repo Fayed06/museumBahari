@@ -33,6 +33,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.barang.fields.deskripsi_barang') }}
+                        </th>
+                        <td>
+                            {{ $barang->deskripsi_barang }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.barang.fields.gambar_barang') }}
                         </th>
                         <td>
