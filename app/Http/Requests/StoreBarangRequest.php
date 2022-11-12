@@ -21,11 +21,11 @@ class StoreBarangRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'deskripsi_barang' => [
-                'string',
-                'nullable',
-            ],
             'gambar_barang' => [
+                'array',
+                'required',
+            ],
+            'gambar_barang.*' => [
                 'required',
             ],
             'kode_barang' => [

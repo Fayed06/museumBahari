@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\SubmissionController;
-use App\Http\Controllers\Api\BarangController;
-use App\Http\Controllers\Api\EventController;
-use App\Http\Controllers\Api\TicketController;
-
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:sanctum']], function () {
     // Permissions
     Route::apiResource('permissions', 'PermissionsApiController');
@@ -40,26 +35,4 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Submission Link
     Route::apiResource('submission-links', 'SubmissionLinkApiController');
-
-
 });
-
-Route::group(['namespace' => 'Api\V1'], function () {
-    // Submission Link
-    Route::post('/link/submit', "SubmissionController@submit");
-
-    // Barang
-    Route::get('/barang', "BarangController@getAll");
-    Route::get('/barang/{id}', "BarangController@getOneById");
-    Route::get('/barang/kode/{kode_barang}', "BarangController@getOneByKode");
-
-    // Event
-    Route::get('/event', "EventController@getAll");
-    Route::get('/event/{id}', "EventController@getOneById");
-
-    // Ticket
-    Route::post('/tickets/order', "TicketController@store");
-    Route::get('/tickets', "TicketController@getAll");
-});
-
-
