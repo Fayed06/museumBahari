@@ -13,7 +13,5 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'https://museum-bahari.telenurse.web.id/api',
-        'https://museum-bahari.telenurse.web.id/api/link/submit'
     ];
 }

@@ -15,12 +15,11 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/dusk": "^6.11",
         "laravel/framework": "^8.70.1",
-        "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.5",
+        "yajra/laravel-datatables-oracle": "^9.18",
         "laravel/ui": "^3.3",
-        "milon/barcode": "^9.0",
         "spatie/laravel-medialibrary": "^9.11.2",
-        "yajra/laravel-datatables-oracle": "^9.18"
+        "laravel/sanctum": "^2.8"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

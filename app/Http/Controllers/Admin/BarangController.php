@@ -37,8 +37,8 @@ class BarangController extends Controller
     {
         $barang = Barang::create($request->all());
 
-        if ($request->input('gambar_barang', false)) {
-            $barang->addMedia(storage_path('tmp/uploads/' . basename($request->input('gambar_barang'))))->toMediaCollection('gambar_barang');
+        foreach ($request->input('gambar_barang', []) as $file) {
+            $barang->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('gambar_barang');
         }
 
         if ($media = $request->input('ck-media', false)) {
@@ -59,15 +59,18 @@ class BarangController extends Controller
     {
         $barang->update($request->all());
 
-        if ($request->input('gambar_barang', false)) {
-            if (!$barang->gambar_barang || $request->input('gambar_barang') !== $barang->gambar_barang->file_name) {
-                if ($barang->gambar_barang) {
-                    $barang->gambar_barang->delete();
+        if (count($barang->gambar_barang) > 0) {
+            foreach ($barang->gambar_barang as $media) {
+                if (!in_array($media->file_name, $request->input('gambar_barang', []))) {
+                    $media->delete();
                 }
-                $barang->addMedia(storage_path('tmp/uploads/' . basename($request->input('gambar_barang'))))->toMediaCollection('gambar_barang');
             }
-        } elseif ($barang->gambar_barang) {
-            $barang->gambar_barang->delete();
+        }
+        $media = $barang->gambar_barang->pluck('file_name')->toArray();
+        foreach ($request->input('gambar_barang', []) as $file) {
+            if (count($media) === 0 || !in_array($file, $media)) {
+                $barang->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('gambar_barang');
+            }
         }
 
         return redirect()->route('admin.barangs.index');

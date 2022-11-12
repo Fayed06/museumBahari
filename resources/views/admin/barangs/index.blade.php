@@ -29,9 +29,6 @@
                             {{ trans('cruds.barang.fields.nama_barang') }}
                         </th>
                         <th>
-                            {{ trans('cruds.barang.fields.deskripsi_barang') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.barang.fields.gambar_barang') }}
                         </th>
                         <th>
@@ -55,14 +52,11 @@
                                 {{ $barang->nama_barang ?? '' }}
                             </td>
                             <td>
-                                {{ $barang->deskripsi_barang ?? '' }}
-                            </td>
-                            <td>
-                                @if($barang->gambar_barang)
-                                    <a href="{{ $barang->gambar_barang->getUrl() }}" target="_blank" style="display: inline-block">
-                                        <img src="{{ $barang->gambar_barang->getUrl('thumb') }}">
+                                @foreach($barang->gambar_barang as $key => $media)
+                                    <a href="{{ $media->getUrl() }}" target="_blank" style="display: inline-block">
+                                        <img src="{{ $media->getUrl('thumb') }}">
                                     </a>
-                                @endif
+                                @endforeach
                             </td>
                             <td>
                                 {{ $barang->kode_barang ?? '' }}
