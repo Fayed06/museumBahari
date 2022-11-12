@@ -29,6 +29,9 @@
                             {{ trans('cruds.barang.fields.nama_barang') }}
                         </th>
                         <th>
+                            {{ trans('cruds.barang.fields.deskripsi_barang') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.barang.fields.gambar_barang') }}
                         </th>
                         <th>
@@ -50,6 +53,9 @@
                             </td>
                             <td>
                                 {{ $barang->nama_barang ?? '' }}
+                            </td>
+                            <td>
+                                {{ $barang->deskripsi_barang ?? '' }}
                             </td>
                             <td>
                                 @foreach($barang->gambar_barang as $key => $media)

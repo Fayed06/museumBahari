@@ -21,6 +21,16 @@
                 <span class="help-block">{{ trans('cruds.barang.fields.nama_barang_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="deskripsi_barang">{{ trans('cruds.barang.fields.deskripsi_barang') }}</label>
+                <input class="form-control {{ $errors->has('deskripsi_barang') ? 'is-invalid' : '' }}" type="text" name="deskripsi_barang" id="deskripsi_barang" value="{{ old('deskripsi_barang', $barang->deskripsi_barang) }}">
+                @if($errors->has('deskripsi_barang'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('deskripsi_barang') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.barang.fields.deskripsi_barang_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="gambar_barang">{{ trans('cruds.barang.fields.gambar_barang') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('gambar_barang') ? 'is-invalid' : '' }}" id="gambar_barang-dropzone">
                 </div>
